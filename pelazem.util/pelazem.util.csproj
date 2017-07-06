@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <SignAssembly>True</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyFile>pelazem.snk.pfx</AssemblyOriginatorKeyFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Patrick El-Azem</Authors>
+    <Company />
+    <Description>A small .NET Standard common utility library. Some collection and reflection extension methods, a safer number converter, type functionality (such as easily getting all properties defined on a type), etc.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1" />
+  </ItemGroup>
+
+</Project>
