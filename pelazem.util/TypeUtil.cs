@@ -7,7 +7,7 @@ using System.Reflection;
 namespace pelazem.util
 {
 	public static class TypeUtil
-    {
+	{
 		#region Properties
 
 		public static Type TypeBool = typeof(Boolean);
@@ -154,7 +154,7 @@ namespace pelazem.util
 
 		public static bool IsNumeric(Type type)
 		{
-			if (type == null)
+			if (type == null || type == TypeString || type == TypeChar || type == TypeVoid)
 				return false;
 
 			return
@@ -180,6 +180,26 @@ namespace pelazem.util
 				type.Equals(TypeUInt64Nullable) ||
 				type.Equals(TypeSingle) ||
 				type.Equals(TypeSingleNullable)
+			;
+		}
+
+		public static bool IsPrimitive(PropertyInfo prop)
+		{
+			return IsPrimitive(prop.PropertyType);
+		}
+
+		/// <summary>
+		/// True if the type is a primitive (nullable or non-nullable) type.
+		/// This class' PrimitiveTypes or PrimitiveNullableTypes contain the types against which the passed-in type is compared.
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		public static bool IsPrimitive(Type type)
+		{
+			return
+				PrimitiveTypes.Contains(type)
+				||
+				PrimitiveNullableTypes.Contains(type)
 			;
 		}
 
