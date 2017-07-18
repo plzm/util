@@ -223,7 +223,7 @@ namespace pelazem.util
 		public static List<PropertyInfo> GetProps(Type type)
 		{
 			if (!_typeProps.Keys.Contains(type.FullName))
-				_typeProps.Add(type.FullName, TypeGuid.GetRuntimeProperties().ToList<PropertyInfo>());
+				_typeProps.Add(type.FullName, type.GetRuntimeProperties().ToList<PropertyInfo>());
 
 			return _typeProps[type.FullName];
 		}
