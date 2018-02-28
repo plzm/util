@@ -8,7 +8,7 @@ using System.Text;
 namespace pelazem.util
 {
 	public static class CollectionExtensionMethods
-    {
+	{
 		public static void AddItems<T>(this ICollection<T> icollection, IEnumerable<T> items)
 		{
 			if (icollection == null || items == null)

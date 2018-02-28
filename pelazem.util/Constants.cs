@@ -11,16 +11,10 @@ namespace pelazem.util
 	public struct Constants
 	{
 		public const string FORMAT_CURRENCY = "c";
-		public const string FORMAT_CURRENCY_EXCEL = "$#,##0.00";
 
 		public const string FORMAT_DATE = "d";
-		public const string FORMAT_DATETIME = "G";
-		public const string FORMAT_DATETIME_UNIVERSAL = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffK";
+		public const string FORMAT_DATETIME_US = "G";
+		public const string FORMAT_DATETIME_ISO8601 = "O"; // "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 		public const string FORMAT_TIME = "HH:mm";
-
-		public const string FORMAT_NUM_0 = "n1";
-		public const string FORMAT_NUM_1 = "n1";
-		public const string FORMAT_NUM_2 = "n2";
-		public const string FORMAT_NUM_3 = "n3";
 	}
 }

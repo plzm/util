@@ -4,7 +4,7 @@ using System.Reflection;
 namespace pelazem.util
 {
 	public static class ReflectionExtensionMethods
-    {
+	{
 		public static object GetValueEx(this PropertyInfo prop, object obj)
 		{
 			object result = null;
@@ -16,6 +16,10 @@ namespace pelazem.util
 			catch (Exception ex)
 			{
 				result = null;
+
+				// Log
+
+				throw ex;
 			}
 
 			return result;
@@ -29,6 +33,9 @@ namespace pelazem.util
 			}
 			catch (Exception ex)
 			{
+				// Log
+
+				throw ex;
 			}
 		}
 	}
