@@ -9,18 +9,34 @@
     <Authors>Patrick El-Azem (www.linkedin.com/in/pelazem)</Authors>
     <Company />
     <Description>A small .NET Standard 2.0 common utility library. Some collection and reflection extension methods, a safer number converter, type functionality (such as easily getting all properties defined on a type), etc.</Description>
-    <Version>2.0</Version>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.1</Version>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.1.0.0</FileVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/plzm/pelazem.util</PackageProjectUrl>
-    <PackageReleaseNotes>Version 2.0 introduces breaking changes from 1.x.
+    <PackageReleaseNotes>Version 2 introduces breaking changes from 1.x.
 The random number generator has been broken out to a separate project and Nuget package, pelazem.rng.
 Some constants have been removed/added from the Constants class.</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/plzm/pelazem.util</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Class1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
