@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace pelazem.util
 {
@@ -13,12 +12,9 @@ namespace pelazem.util
 	{
 		#region Variables
 
-		private bool _succeeded = false;
-		private string _message = string.Empty;
-		private int _countAffected = 0;
-		private object _output = null;
 		private Dictionary<string, object> _outputs = null;
 		private List<OpResult> _results = null;
+		private ValidationResult _validationResult = null;
 
 		#endregion
 
@@ -27,31 +23,21 @@ namespace pelazem.util
 		/// <summary>
 		/// Whether the operation that generated this OpResult succeeded.
 		/// </summary>
-		public bool Succeeded
-		{
-			get { return _succeeded; }
-			set { _succeeded = value; }
-		}
+		public virtual bool Succeeded { get; set; } = false;
 
 		/// <summary>
 		/// A status or other message provided by the operation.
 		/// </summary>
-		public string Message
-		{
-			get { return _message; }
-			set { _message = value; }
-		}
+		public virtual string Message { get; set; } = string.Empty;
 
-		public object Output
-		{
-			get { return _output; }
-			set { _output = value; }
-		}
+		public virtual int CountAffected { get; set; } = 0;
+
+		public virtual object Output { get; set; } = null;
 
 		/// <summary>
 		/// Output values from the operation. Key-value pairs.
 		/// </summary>
-		public Dictionary<string, object> Outputs
+		public virtual Dictionary<string, object> Outputs
 		{
 			get
 			{
@@ -62,13 +48,7 @@ namespace pelazem.util
 			}
 		}
 
-		public int CountAffected
-		{
-			get { return _countAffected; }
-			set { _countAffected = value; }
-		}
-
-		public List<OpResult> Results
+		public virtual IList<OpResult> Results
 		{
 			get
 			{
@@ -79,19 +59,41 @@ namespace pelazem.util
 			}
 		}
 
-		#endregion
+		public virtual Exception Exception { get; set; } = null;
 
-		#region Constructors
-
-		public OpResult() { }
-
-		public OpResult(bool result, string message, int countAffected)
+		public virtual ValidationResult ValidationResult
 		{
-			_succeeded = result;
-			_message = message;
-			_countAffected = countAffected;
+			get
+			{
+				if (_validationResult == null)
+					_validationResult = new ValidationResult();
+
+				return _validationResult;
+			}
 		}
 
 		#endregion
+	}
+
+	public class OpResult<T> : OpResult
+	{
+		#region Variables
+
+		private Dictionary<string, T> _outputs = null;
+
+		#endregion
+
+		public new T Output { get; set; } = default(T);
+
+		public new Dictionary<string, T> Outputs
+		{
+			get
+			{
+				if (_outputs == null)
+					_outputs = new Dictionary<string, T>();
+
+				return _outputs;
+			}
+		}
 	}
 }

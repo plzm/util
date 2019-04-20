@@ -9,9 +9,9 @@
     <Authors>Patrick El-Azem (www.linkedin.com/in/pelazem)</Authors>
     <Company />
     <Description>A small .NET Standard 2.0 common utility library. Some collection and reflection extension methods, a safer number converter, type functionality (such as easily getting all properties defined on a type), etc. See project site for details and code.</Description>
-    <Version>2.4</Version>
-    <AssemblyVersion>2.4.0.0</AssemblyVersion>
-    <FileVersion>2.4.0.0</FileVersion>
+    <Version>2.6.0</Version>
+    <AssemblyVersion>2.6.0.0</AssemblyVersion>
+    <FileVersion>2.6.0.0</FileVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/plzm/pelazem.util</PackageProjectUrl>
     <PackageReleaseNotes>Version 2 introduces breaking changes from 1.x.
