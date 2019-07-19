@@ -13,7 +13,8 @@ namespace pelazem.util
 		#region Variables
 
 		private Dictionary<string, object> _outputs = null;
-		private List<OpResult> _results = null;
+		private List<OpResult> _opResults = null;
+
 		private ValidationResult _validationResult = null;
 
 		#endregion
@@ -32,6 +33,8 @@ namespace pelazem.util
 
 		public virtual int CountAffected { get; set; } = 0;
 
+		public virtual Exception Exception { get; set; } = null;
+
 		public virtual object Output { get; set; } = null;
 
 		/// <summary>
@@ -48,18 +51,16 @@ namespace pelazem.util
 			}
 		}
 
-		public virtual IList<OpResult> Results
+		public virtual IList<OpResult> OpResults
 		{
 			get
 			{
-				if (_results == null)
-					_results = new List<OpResult>();
+				if (_opResults == null)
+					_opResults = new List<OpResult>();
 
-				return _results;
+				return _opResults;
 			}
 		}
-
-		public virtual Exception Exception { get; set; } = null;
 
 		public virtual ValidationResult ValidationResult
 		{
@@ -69,6 +70,10 @@ namespace pelazem.util
 					_validationResult = new ValidationResult();
 
 				return _validationResult;
+			}
+			set
+			{
+				_validationResult = value;
 			}
 		}
 
