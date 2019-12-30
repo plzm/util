@@ -2,7 +2,7 @@
 
 C# utility library.
 
-Implemented as a .NET Standard 2.0 DLL. For compatibility info, see https://docs.microsoft.com/dotnet/standard/net-standard
+Implemented as a .NET Standard 2.1 library. For compatibility info, see https://docs.microsoft.com/dotnet/standard/net-standard
 
 ---
 
