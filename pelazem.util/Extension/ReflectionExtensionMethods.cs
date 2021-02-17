@@ -7,36 +7,12 @@ namespace pelazem.util
 	{
 		public static object GetValueEx(this PropertyInfo prop, object obj)
 		{
-			object result = null;
-
-			try
-			{
-				result = prop.GetValue(obj, null);
-			}
-			catch (Exception ex)
-			{
-				result = null;
-
-				// Log
-
-				throw ex;
-			}
-
-			return result;
+			return prop.GetValue(obj, null);
 		}
 
 		public static void SetValueEx(this PropertyInfo prop, object obj, object value)
 		{
-			try
-			{
-				prop.SetValue(obj, value, null);
-			}
-			catch (Exception ex)
-			{
-				// Log
-
-				throw ex;
-			}
+			prop.SetValue(obj, value, null);
 		}
 	}
 }
